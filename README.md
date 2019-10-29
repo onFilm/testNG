@@ -103,4 +103,39 @@
 ### TestNG Asserts and verify
 	1)Soft Assert - Soft Assert collects errors during @Test. Soft Assert does not throw an exception when an assert fails and would 		continue with the next step after the assert statement.
 	2)Hard Assert - Hard Assert throws an AssertException immediately when an assert statement fails and test suite continues with 			next @Test
-	3)Verify - When a “verify” command fails, the test will continue executing and logging the failure.
+	3)Verify - When a “verify” command fails, the test will continue executing and logging the failure
+	
+### TestNG Grouping
+	@Test(groups={"car","luxury"})
+	
+Add below the tags in .xml runner file
+
+	<groups>
+		<run>
+			<include name="bike"></include>
+			<include name="luxury"></include>
+		</run>
+	</groups>
+or
+
+	<groups>
+		<define name="all">
+			<include name="bike"></include>
+			<include name="luxury"></include>
+		</define>
+		<run>
+			<include name="all"></include>
+		</run>
+	</groups>
+	
+### TestNG dependsOnMethod and alwaysRun
+	@Test(dependsOnMethods = {"testMethod2"}, alwaysRun=true)  - this test depends on testMethod 2 and runs the test irrespective 		of the testMethod2 pass/fail
+	
+	
+### TestNG test enable/disable
+	@Test(enabled=true)  - test execution is enabled
+	@Test(enabled=false) - test execution is disabled
+	
+### TestNG test timeOut
+	@Test(timeOut=100)  - test fails if it takes more than 100 mili seconds.
+	
