@@ -13,16 +13,16 @@
 	  		Before Test
 	  			  Before Class
             
-	  				    Before Method
-	  					      @Test   - Test Case 1
-	  				    After Method
-                Before Method
-                    @Test	-	Test Case 2
-                After Method
-                  ....
-                Before Method
-	  				      	@Test  -  Nth Test
-	  				    After Method
+	  				Before Method
+	  				      @Test - Test Case 1
+	  				After Method
+					Before Method
+					    @Test - Test Case 2
+					After Method
+					  ....
+					Before Method
+	  				      	@Test - Nth Test
+	  				After Method
                 
 	  			After Class
 	  		After Test
