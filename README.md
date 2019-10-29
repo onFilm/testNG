@@ -139,3 +139,22 @@ or
 ### TestNG test timeOut
 	@Test(timeOut=100)  - test fails if it takes more than 100 mili seconds.
 	
+### TestNG Parameters
+	@Parameter({"browser","url"})   - test method should have same no of parameters to accept these
+	
+	<parameter name ="browser" value ="chrome"></parameter>
+	<parameter name ="url" value ="https://www.google.com"></parameter>   // paste in testNG runner xml
+
+### TestNG DataProvider
+	@DataProvider
+	public String[][] getData(){
+		String myTwoDimensionalStringArray[][]= {{"Prajwal","Password1"},{"Abhi","Password2"},{"Nagesh","Password3"},			{"Yogesh","Password4"}};
+		return myTwoDimensionalStringArray;
+		}
+	
+	 @Test(dataProvider="getData")
+	 public void testDataProvider(String username, String password) {
+		  System.out.println("Username : "+username+" -> Password : "+password);
+	 }
+	  
+	 @Test(dataProvider="getData", dataProviderClass="testData.class")  -- use this if the getData method is in different class.
