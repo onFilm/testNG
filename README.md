@@ -197,3 +197,19 @@ or
 **IMethodInterceptor:** This class is used to alter the list of test methods that TestNG is about to run.
 
 **IReporter**: This interface can be implemented by clients to generate a report
+
+### TestNG Multiple Listener
+	<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+	<suite name="Suite">
+	<listeners>
+	<listener class-name="customListeners.Custom_ITestListener"></listener>
+	<listener class-name="customListeners.CustomListener_IInvokedListener"></listener>
+	</listeners>
+		<test name="Test">
+			<classes>
+				<class name="testNG_Test_Cases.TestNG_Simple_Test" />
+			</classes>
+		</test> <!-- Test -->
+	</suite> <!-- Suite -->
+	
+or create a class which implements multiple/different ITest`Listeners and override the unimplemented methods.
