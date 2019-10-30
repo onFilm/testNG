@@ -103,7 +103,9 @@
 	   
 ### TestNG Asserts and verify
 **Soft Assert** - Soft Assert collects errors during @Test. Soft Assert does not throw an exception when an assert fails and would 		continue with the next step after the assert statement.
+
 **Hard Assert** - Hard Assert throws an AssertException immediately when an assert statement fails and test suite continues with 			next @Test
+
 **Verify** - When a “verify” command fails, the test will continue executing and logging the failure
 	
 ### TestNG Grouping
