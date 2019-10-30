@@ -34,6 +34,7 @@
 	@AfterSuite, @AfterTest, @AfterClass, @AfterMethod and @AfterGroups
 	@Parameters
 	@DataProvider
+	@Listener
 	@ExpectedExceptions
 	...
 	More
@@ -101,9 +102,9 @@
 	    @Test(priority = 2)
 	   
 ### TestNG Asserts and verify
-	1)Soft Assert - Soft Assert collects errors during @Test. Soft Assert does not throw an exception when an assert fails and would 		continue with the next step after the assert statement.
-	2)Hard Assert - Hard Assert throws an AssertException immediately when an assert statement fails and test suite continues with 			next @Test
-	3)Verify - When a “verify” command fails, the test will continue executing and logging the failure
+**Soft Assert** - Soft Assert collects errors during @Test. Soft Assert does not throw an exception when an assert fails and would 		continue with the next step after the assert statement.
+**Hard Assert** - Hard Assert throws an AssertException immediately when an assert statement fails and test suite continues with 			next @Test
+**Verify** - When a “verify” command fails, the test will continue executing and logging the failure
 	
 ### TestNG Grouping
 	@Test(groups={"car","luxury"})
@@ -158,3 +159,39 @@ or
 	 }
 	  
 	 @Test(dataProvider="getData", dataProviderClass="testData.class")  -- use this if the getData method is in different class.
+	 
+### TestNG ITestResult
+	@AfterMethod
+	  public void afterMethod(ITestResult testResult) {
+		  if(testResult.getStatus() == testResult.FAILURE) {
+			  System.out.println("Failed : " + testResult.getMethod().getMethodName());
+		  }
+
+		  if(testResult.getStatus() == testResult.SUCCESS) {
+			  System.out.println("Success : " + testResult.getName());
+		  }
+	  }
+	  
+### TestNG ITestListener
+
+**ISuiteListener**: We can use this test suite listener to perform some operations when test suite starts and when all the tests are executed. This interface contains two methods – onStart(ISuite suite) and onFinish(ISuite suite) and provides access to test suite object.
+
+**ITestListener**: We can use this listener to analyze test methods, perform logging. We can also use them to send notifications if any test fails by implementing onTestFailure(ITestResult result) method.
+
+**IAnnotationTransformer**: We can implement this interface to modify the annotations for any @Test method. Note that we can use this annotation only with TestNG XML configuration.
+
+**IAnnotationTransformer2**: We can implement this interface to modify the annotations for any method other than @Test method.This annotation can be used with TestNG XML configuration only.
+
+**IConfigurable**: If a test class implements this interface, its run() method will be invoked instead of each configuration method found.
+
+**IConfigurationListener**: Listener interface for events related to configuration methods.
+
+**IExecutionListener**: This listener is used to monitor when a TestNG run starts and ends.
+
+**IHookable**: If a test class implements this interface, its run() method will be invoked instead of each @Test method found.
+
+**IInvokedMethodListener**: A listener that gets invoked before and after a method is invoked by TestNG.
+
+**IMethodInterceptor:** This class is used to alter the list of test methods that TestNG is about to run.
+
+**IReporter**: This interface can be implemented by clients to generate a report
