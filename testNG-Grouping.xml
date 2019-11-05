@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Test">
+		<groups>
+			<run>
+				<include name="bike"></include>
+				<include name="luxury"></include>
+			</run>
+		</groups>
+		<classes>
+			<class name="testNG_Test_Cases.Grouping" />
+			<class name="testNG_Test_Cases.TestNG_Structure" />
+			<class name="testNG_Test_Cases.TestNG_Soft_Assert" />
+			<class name="testNG_Test_Cases.OverrideAnnotation" />
+			<class name="testNG_Test_Cases.TestSomeClassToTestMethods" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
